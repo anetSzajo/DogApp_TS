@@ -2,16 +2,14 @@ import * as React from 'react';
 import axios, {AxiosResponse} from "axios";
 import FilterByBreed from '../FilterByBreed';
 import '../../main.scss';
+import {BreedsList} from "./BreedsList/BreedsList";
+import {Breed} from "../../Model/Breed";
+
 
 type BreedsListPageState = {
     readonly loaded: boolean;
     readonly breeds: Breed[];
     readonly filterInputQuery: string
-}
-
-interface Breed {
-    breedName: string;
-    subBreeds?: Array<string>
 }
 
 type BreedApiResponse = {
@@ -21,7 +19,7 @@ type BreedApiResponse = {
     status: string
 }
 
-export class BreedsListPage extends React.Component<void, BreedsListPageState> {
+export class BreedsListPage extends React.Component<{}, BreedsListPageState> {
     readonly state: BreedsListPageState = {
         loaded: false,
         breeds: [],
@@ -57,6 +55,7 @@ export class BreedsListPage extends React.Component<void, BreedsListPageState> {
         })
     }
 
+
     filteringResults = (): Breed[] => {
         return this.state.breeds.filter(breed =>
             breed.breedName.toLowerCase().includes(this.state.filterInputQuery.toLowerCase()));
@@ -67,13 +66,11 @@ export class BreedsListPage extends React.Component<void, BreedsListPageState> {
             return (
                 <div className="breedsListPage">
                     <h2>Check out awesome dogs!</h2>
-                    <FilterByBreed
-                        handleBreedChange={this.handleBreedChange}
-                    />
+                    <FilterByBreed handleBreedChange={this.handleBreedChange} />
                     <div className="breedsList__container">
-                        {/*<BreedsList*/}
-                        {/*    breeds={this.state.filterInputQuery === '' ? this.state.breeds : this.filteringResults()}*/}
-                        {/*/>*/}
+                        <BreedsList
+                            breeds={this.state.filterInputQuery === '' ? this.state.breeds : this.filteringResults()}
+                        />
                     </div>
                 </div>
             )

@@ -1,4 +1,5 @@
-import BreedsListPage from "../BreedsListPage/BreedsListPage";
+import * as React from 'react';
+import {BreedsListPage} from "./BreedsListPage/BreedsListPage";
 
 function HomePage() {
     return (

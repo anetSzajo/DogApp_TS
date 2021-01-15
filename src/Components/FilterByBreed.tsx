@@ -1,11 +1,14 @@
+import * as React from 'react';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import SearchIcon from '@material-ui/icons/Search';
 import '../../main.scss';
 
-function FilterByBreed(props) {
-    function handleChange(event) {
-        props.handleBreedChange(event.target.value);
+
+function FilterByBreed(props: {handleBreedChange: Function}) {
+
+    const handleChange = (e:  React.ChangeEvent<HTMLInputElement>) => {
+        props.handleBreedChange(e.currentTarget.value);
     };
 
     return (
