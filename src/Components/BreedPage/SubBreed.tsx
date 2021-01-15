@@ -1,6 +1,6 @@
 import React from "react";
 import {capitalizeFirstLetter} from '../../utils';
-// import '../../../main.scss';
+import '../../../main.scss';
 
 export function SubBreed(props: {onClick: Function, subBreedName: string }) {
 

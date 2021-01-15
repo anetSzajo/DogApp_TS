@@ -1,22 +1,16 @@
 import * as React from 'react';
 import axios, {AxiosResponse} from "axios";
 import FilterByBreed from '../FilterByBreed';
-import '../../main.scss';
 import {BreedsList} from "./BreedsList/BreedsList";
 import {Breed} from "../../Model/Breed";
-
+import {BreedApiResponse} from "../../Model/BreedApiResponse";
+import {transformApiResponse} from '../../utils';
+import '../../main.scss';
 
 type BreedsListPageState = {
     readonly loaded: boolean;
     readonly breeds: Breed[];
     readonly filterInputQuery: string
-}
-
-type BreedApiResponse = {
-    message: {
-        [property: string]: Array<string>
-    },
-    status: string
 }
 
 export class BreedsListPage extends React.Component<{}, BreedsListPageState> {
@@ -26,18 +20,12 @@ export class BreedsListPage extends React.Component<{}, BreedsListPageState> {
         filterInputQuery: ''
     };
 
-    transformApiResponse = ((data: BreedApiResponse): Breed[] =>
-        Object.entries(data.message).map((n) => {
-            return {breedName: n[0], subBreeds: n[1]};
-        }))
-
-
     fetchBreeds = () => {
         axios.get<BreedApiResponse>("https://dog.ceo/api/breeds/list/all")
             .then((res: AxiosResponse<BreedApiResponse>) => {
                 this.setState({
                     loaded: true,
-                    breeds: this.transformApiResponse(res.data)
+                    breeds: transformApiResponse(res.data)
                 });
             })
             .catch((error) => {
@@ -65,7 +53,7 @@ export class BreedsListPage extends React.Component<{}, BreedsListPageState> {
         if (this.state.loaded) {
             return (
                 <div className="breedsListPage">
-                    <h2>Check out awesome dogs!</h2>
+                    <h1>Check out awesome dogs!</h1>
                     <FilterByBreed handleBreedChange={this.handleBreedChange} />
                     <div className="breedsList__container">
                         <BreedsList

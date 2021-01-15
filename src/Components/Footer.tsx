@@ -1,12 +1,10 @@
 import * as React from 'react';
 import '../../main.scss';
 
-function Footer() {
+export default function Footer() {
     return (
         <div className="footer">
             <p>&copy; A.Szajowska</p>
         </div>
 )
 }
-
-export default Footer;

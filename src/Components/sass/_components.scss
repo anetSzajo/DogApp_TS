@@ -58,6 +58,8 @@ html {
   padding: 1rem 4rem;
   margin: 4rem auto;
   font-family: $default-font;
+  width: 60%;
+  text-align: center;
 }
 
 .breedsList__element,
@@ -74,12 +76,6 @@ html {
     background: $main-color;
     font-size: 10px;
     font-family: $default-font;
-  }
-}
-
-@media(min-width: 40rem) {
-  .breedsListPage h2 {
-    padding: 1rem 23rem;
   }
 }
 

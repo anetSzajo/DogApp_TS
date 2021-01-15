@@ -2,10 +2,10 @@ import * as React from "react";
 import { RouteComponentProps } from 'react-router-dom'
 import axios, {AxiosResponse}  from "axios";
 import {Breed} from "../../Model/Breed";
-import '../../main.scss';
 import {BreedApiResponse} from "../../Model/BreedApiResponse";
 import {BreedImagesContainer} from "./BreedImagesContainer";
 import {SubBreed} from "./SubBreed";
+import '../../main.scss';
 
 
 type BreedPageState = {
@@ -27,7 +27,7 @@ type TypeWithLocationState =
     RouteComponentProps<MockType, MockType, LocationState>;
 
 
-export class BreedPage extends React.Component<TypeWithLocationState, BreedPageState> {
+export default class BreedPage extends React.Component<TypeWithLocationState, BreedPageState> {
     readonly state: BreedPageState = {
         breed: this.props.location.state.breed,
         chosenSubBreedName: '',

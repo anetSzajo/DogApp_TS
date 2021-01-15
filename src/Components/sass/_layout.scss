@@ -21,7 +21,10 @@
   div{
     background: $fourth-color;
   }
-  h4,
+  h4{
+    font-family: $default-font;
+    font-size: 24px;
+  }
   span{
     font-family: $default-font;
   }
@@ -65,6 +68,3 @@
     margin: auto;
   }
 }
-
-
-

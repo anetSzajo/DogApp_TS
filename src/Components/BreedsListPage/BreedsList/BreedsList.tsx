@@ -2,7 +2,6 @@ import React from "react";
 import {BreedsListElement} from "./BreedsListElement";
 import {Breed} from "../../../Model/Breed";
 
-
 export function BreedsList(props: { breeds: Breed[] }) {
     return (
         <div className="breedsList">

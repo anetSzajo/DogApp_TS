@@ -8,7 +8,7 @@ import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import {capitalizeFirstLetter} from '../../utils';
 import {Breed} from "../../Model/Breed";
-// import '../../../main.scss';
+import '../../../main.scss';
 
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -78,7 +78,6 @@ export function BreedImagesContainer(props: {images: Array<string>, breed: Breed
                     </Button>
                 }
             />
-
         </div>
 
     );
