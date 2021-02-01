@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Link} from 'react-router-dom';
-import '../../main.scss';
+import '../main.scss';
 
 export default function Navbar() {
     return (

@@ -6,6 +6,7 @@ import {BreedApiResponse} from "../../Model/BreedApiResponse";
 import {BreedImagesContainer} from "./BreedImagesContainer";
 import {SubBreed} from "./SubBreed";
 import '../../main.scss';
+import {reduceToN} from "../../utils";
 
 
 type BreedPageState = {
@@ -35,24 +36,12 @@ export default class BreedPage extends React.Component<TypeWithLocationState, Br
         images: []
     };
 
-    getRandomWithinRangeExclusive(n: number): number {
-        return Math.floor(Math.random() * Math.floor(n));
-    }
-
-    reduceToN = (n: number): Function => (array: number[]): number[] => {
-        let newArray: number[] = [];
-        for (let i = 0; i < n; i++) {
-            newArray.push(array[this.getRandomWithinRangeExclusive(array.length)]);
-        }
-        return newArray;
-    };
-
-    reduceArrayTo3 = this.reduceToN(3);
+    reduceArrayTo3 = reduceToN(3);
 
     fetchBreedPhotos = () => {
         axios
             .get<BreedApiResponse>(`https://dog.ceo/api/breed/${this.state.breed.breedName}/images`)
-            .then((res: AxiosResponse<BreedApiResponse>) => res.data)
+            .then((res: AxiosResponse<BreedApiResponse>) => res.data.message)
             .then((imagesSrcArray) => this.reduceArrayTo3(imagesSrcArray))
             .then((reducedImagesSrc) => {
                 this.setState({

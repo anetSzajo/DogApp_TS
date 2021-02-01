@@ -1,4 +1,4 @@
-@import '/base';
+@import 'base';
 
 .breedsList__container {
   margin: 4rem auto;
@@ -18,12 +18,21 @@
 
 .imagesContainer{
   margin: 2rem auto;
+  background: $fourth-color;
   div{
     background: $fourth-color;
   }
   h4{
     font-family: $default-font;
     font-size: 24px;
+  }
+  img{
+    height: 300px;
+    display: block;
+    overflow: hidden;
+    width: initial;
+    max-width: 100%;
+    margin: auto;
   }
   span{
     font-family: $default-font;
@@ -51,7 +60,7 @@
 @media(min-width: 40rem){
   .breedsList{
     grid-template-columns: repeat(5, 1fr);
-    width: 70%;
+    width: 95%;
     margin: auto;
   }
   .imagesContainer{

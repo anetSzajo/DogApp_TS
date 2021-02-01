@@ -1,4 +1,4 @@
-@import '/base';
+@import 'base';
 
 body,
 html {
@@ -50,7 +50,7 @@ html {
   padding-bottom: 2rem;
 }
 
-.breedsListPage h2 {
+.breedsListPage h1 {
   font-size: 20px;
   width: fit-content;
   border-radius: $default-border-radius;

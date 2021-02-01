@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Theme, makeStyles, useTheme } from '@material-ui/core/styles';
+import {Theme, makeStyles, useTheme} from '@material-ui/core/styles';
 import MobileStepper from '@material-ui/core/MobileStepper';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
@@ -8,7 +8,7 @@ import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import {capitalizeFirstLetter} from '../../utils';
 import {Breed} from "../../Model/Breed";
-import '../../../main.scss';
+import '../../main.scss';
 
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -22,17 +22,11 @@ const useStyles = makeStyles((theme: Theme) => ({
         alignItems: 'center',
         height: 67,
         backgroundColor: theme.palette.background.default,
-    },
-    img: {
-        height: 300,
-        display: 'block',
-        overflow: 'hidden',
-        width: '100%',
     }
 }));
 
 
-export function BreedImagesContainer(props: {images: Array<string>, breed: Breed,  subBreed: string}) {
+export function BreedImagesContainer(props: { images: Array<string>, breed: Breed, subBreed: string }) {
 
     const classes = useStyles();
 
@@ -55,8 +49,7 @@ export function BreedImagesContainer(props: {images: Array<string>, breed: Breed
                     {props.subBreed && capitalizeFirstLetter(props.subBreed)} {capitalizeFirstLetter(props.breed.breedName)}
                 </Typography>
             </Paper>
-            <img
-                className={classes.img}
+            <img.
                 src={props.images[activeStep]}
                 alt={props.images[activeStep]}
             />
