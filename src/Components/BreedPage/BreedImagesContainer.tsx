@@ -49,7 +49,7 @@ export function BreedImagesContainer(props: { images: Array<string>, breed: Bree
                     {props.subBreed && capitalizeFirstLetter(props.subBreed)} {capitalizeFirstLetter(props.breed.breedName)}
                 </Typography>
             </Paper>
-            <img.
+            <img
                 src={props.images[activeStep]}
                 alt={props.images[activeStep]}
             />
